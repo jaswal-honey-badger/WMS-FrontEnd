@@ -1,0 +1,319 @@
+
+.search-hero {
+  max-width: 100%;
+  padding-bottom: 50px;
+  margin:auto;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
+.round-image{
+  border-radius: 50%;
+  
+  width: 75px;
+  height: 75px;
+}
+
+.alignment{
+  text-align: center;
+}
+
+.color-blue{
+  color: #7d98e8;
+}
+.img-padding{
+  padding: 10px 10px 0px 30px;
+}
+.title-padding{
+  padding: 10px 10px 0px 10px;
+}
+.padding{
+  padding-bottom: 10px;
+}
+.icon-padding{
+  padding-top: 10px;
+}
+#blue_chips_trade_bar {
+  margin-top: 2%;
+}
+
+#blue_chip {
+  font-weight: bolder;
+  font-size: 16px;
+
+  margin-left: 2%;
+}
+
+.routerLink {
+  color: wheat;
+}
+
+#trade_bar_div {
+  margin-left: 84%;
+}
+#tradebar_label {
+  font-weight: bold;
+  font-size: 13px;
+  margin-left: 1%;
+}
+#startup_div {
+  margin-top: -6%;
+}
+#stratup_label {
+  font-weight: bold;
+  font-size: 13px;
+  margin-left: 2.5%;
+}
+
+#card1_selectme {
+  font-weight: bold;
+  color: black;
+}
+
+#card1_kit {
+  font-weight: bold;
+  color: black;
+}
+
+#card1_power {
+  font-weight: bold;
+  color: black;
+}
+
+#card1_fsaver {
+  font-weight: bold;
+  color: black;
+}
+
+.card-custom {
+  overflow: hidden;
+  min-height: 450px;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom-img {
+  height: 200px;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-color: inherit;
+}
+
+.card-custom-img::after {
+  position: absolute;
+  content: "";
+  top: 161px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top-width: 40px;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 545px;
+  border-left-width: calc(575px - 5vw);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: inherit;
+}
+
+.card-custom-avatar img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  position: absolute;
+  top: 100px;
+  left: 1.25rem;
+  width: 100px;
+  height: 100px;
+}
+.filters {
+  padding: 10px;
+  width: 100%;
+  margin-top: 30px;
+}
+.card-footer
+{
+  padding: 0.875rem 2.5rem;
+
+
+}
+         
+.badges{
+padding: 5px 5px 3px;
+position: relative;
+top: 22px;
+right: 60px;
+font-size: 13px;
+}
+ 
+
+ .usdt
+ {
+  position: relative;
+  top: -4px;
+  left: 114%;
+ }
+ .inputfield{
+  position: relative;
+  bottom: -9px;
+  left: 101%;
+  border: none;
+  width: 44px;
+  border-bottom: 2px solid red;
+
+ }
+ .shares
+ {
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  top: 11px;
+  right: 2px;
+  font-family: sans-serif;
+ }
+
+ .price
+ {
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  bottom: 5px;
+  font-family: sans-serif;
+ }
+
+ .Investing{
+  font-size: 18px;
+  font-weight: 700;
+  position: relative;
+  top: 28px;
+  right: 2px;
+  font-family: sans-serif;
+ }
+
+ .totalusdt{
+  position: relative;
+  top: 28.5px;
+  left: 114%;
+ }
+ .IBM
+ {
+  font-family: sans-serif;
+  color: #727cf5;
+  font-weight: bold;
+ }
+ 
+ .max{
+  position: relative;
+  top: 31px;
+  left: 121%;
+  font-size: 12px;
+ }
+
+ .btn-custom
+ {
+  background-color: #2B6AD0;
+  border-radius: 12px;
+  font-family: sans-serif;
+ }
+ .website {
+  font: normal 14px sans-serif;
+  letter-spacing: 0.5px;
+  display: block;
+  cursor: pointer;
+  background-color: #313b3f;
+  color: #fcdb42;
+  padding: 10px;
+  text-decoration: none;
+  text-align: right;
+}
+#table-component {
+  font: normal 14px sans-serif;
+  margin: 15px auto 0 auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  height: 400px;
+  max-width: 500px;
+
+  > p {
+    background-color: #313b3f;
+    color: #fcdb42;
+    padding: 10px;
+    margin: 0;
+  }
+
+  table {
+    margin-top: 15px;
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      td:first-child {
+        padding-left: 10px;
+      }
+    }
+
+    td {
+      width: 33.3%;
+      font-size: 13px;
+    }
+
+    thead {
+      font-size: 14px;
+
+      th {
+        border-bottom: 1px solid black;
+        text-align: left;
+        padding-bottom: 5px;
+      }
+    }
+
+    .pl-15 {
+      padding-left: 15px;
+    }
+
+    tbody {
+      td {
+        padding: 5px 0;
+        border-bottom: 1px solid lightgrey;
+      }
+    }
+  }
+
+  .pagination {
+    font-size: 14px;
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  ::ng-deep .pagination-next a,
+  ::ng-deep .pagination-previous a {
+    outline: none;
+  }
+
+  ::ng-deep .ngx-pagination .current {
+    border-radius: 4px;
+  }
+
+  ::ng-deep .ngx-pagination {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .ngx-pagination a:hover,
+  ::ng-deep .ngx-pagination button:hover {
+    border-radius: 4px;
+  }
+
+  ::ng-deep .ngx-pagination a,
+  ::ng-deep .ngx-pagination button {
+    border-radius: 4px;
+    outline: none;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  #table-component {
+    margin: 15px;
+  }
+}

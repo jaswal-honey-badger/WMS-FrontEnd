@@ -1,0 +1,42 @@
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Office</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Recieved Leaves</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">Recieved Leaves</h6>
+        <p class="card-description" style="color: black;">Mark the leaves</p>
+          <div class="text-right">
+            <zxing-scanner style="width: 40%;" (scanSuccess)="onCodeResult($event)"></zxing-scanner>
+            <section class="results" *ngIf="qrResultString">
+              <div>
+                <small>Result</small>
+                <strong>{{ qrResultString }}</strong>
+              </div>
+              <button (click)="clearResult()">&times;</button>
+            </section>
+            <!-- <button type="button" class="btn btn-primary btn-custom" >Scan by QR</button> -->
+          </div>
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="text-center">
+                <th>Employee</th>
+                <th>Name</th>
+                <th>Leave Type</th>
+                <th>Leave Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

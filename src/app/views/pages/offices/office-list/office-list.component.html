@@ -1,0 +1,89 @@
+
+
+<h4 class="card-title" style="margin-bottom: -1%; font-weight: bold;"> 
+  <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+    <i class="feather icon-filter"></i>&nbsp;
+  </button>
+</h4>
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">office List</h6>
+        <div class="container-fluid">
+          <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+            <form class="form-inline" style="padding: 9px; background-color: white;">
+            
+              <div class="form-group ml-2">
+                <select class="form-control"  id="districtName" [formControl]="districtName">
+                  <option value="">Select city</option>
+                  <option value="Ghanche">Ghanche</option>
+                  <option value="Skardu">Skardu</option>
+                  <option value="Shigar">Shigar</option>
+                  <option value="Kharmang">Kharmang</option>
+                  <option value="Roundu">Roundu</option>
+                  <option value="Ghizer">Ghizer</option>
+                  <option value="Gupis–Yasin">Gupis–Yasin</option>
+                  <option value="Skardu">Skardu</option>
+                  <option value="Shigar">Shigar</option>
+                  <option value="Gilgit">Gilgit</option>
+                  <option value="Hunza">Hunza</option>
+                  <option value="Astore">Astore</option>
+                  <option value="Diamer">Diamer</option>
+                  <option value="Darel">Darel</option>
+                  <option value="Tangir">Tangir</option>
+                </select>
+
+            
+           
+           
+            
+              </div>
+              <div class="form-group ml-2">
+                <input type="text"  class="form-control" id="officeName" placeholder="enter office Name" [formControl]="officeName">
+              </div>
+              
+              <div class="form-group ml-2">
+                <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="table-responsive pt-3">
+         
+          <table class="table table-bordered" style="background-color: azure;">
+            <thead style="background-color: rgb(194, 216, 250);" >
+              <tr class="text-center">
+                <th>#</th>
+                <th> Office Name</th>
+                <th>District</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Employee List</th>
+
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let user of myResearcherUsers | search: [officeName.value , districtName.value]:['officeName', 'city'] | paginate: { itemsPerPage: 4, currentPage: p } ;let i=index">
+                <td>{{i + 1}}</td>
+                <td>{{user.officeName}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.pNumber}}</td>
+                 <td class="td-actions text-center">
+                  <button style="background-color: rgb(120, 185, 23);" class="btn btn-light btn-icon" [routerLink]="['/employee-office',user._id]"><i style="color: whitesmoke;" class="feather icon-list"></i></button>
+                  </td>  
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination mt-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

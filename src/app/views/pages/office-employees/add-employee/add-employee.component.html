@@ -1,0 +1,225 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3 class="card-title color-blue">Add Employee</h3>
+    <!--<p>Dashboard/Employees/Add Employee</p>-->
+    <nav class="page-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Dashboard</a></li>
+        <li class="breadcrumb-item"><a routerLink=".">Employees</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Employee</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<div class="row" *ngIf="!checkVerificationEmailStep">
+  <div class="col-md-12 stretch-card">
+    <div class="card back">
+      <div class="card-body">
+        <h3 class="text-color">About</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="checkVerificationEmailStep" style="background-color: green;">
+  <div class="row" style="background-color: green;">
+    <div class="col-md-12 stretch-card" style="background-color:green ;">
+      <div class="card">
+        <div class="card-body" style="background-color:rgb(215, 247, 216) ;">  
+  <i [attr.data-feather]="'check'" appFeatherIcon class="xl-icon"></i>
+  <h5 class="text-muted mt-2">Success!</h5>
+  <p class="text-muted mt-1">Account created. Please check your email for verification link.</p>
+  </div></div></div></div>
+</ng-container>
+
+<div class="row" *ngIf="!checkVerificationEmailStep">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Profile Picture</h6>
+        <img src="../assets/images/profileicon.png" alt="Profile Icon" width="100" height="100">
+        <!--<input (change)="handleFileInput($event)" type="file" name="img[]" class="file-upload-default"
+          id="fileUploadInputExample">-->
+        <div class="input-group col-xs-12" (click)="openFileBrowser($event)">
+          <button class="file-upload-browse btn btn-primary ml-2" type="button">Upload</button>
+        </div>
+        
+        <hr>
+        <h6 class="card-title color-blue">Basic Information</h6>
+        
+        <form class="forms-sample" [formGroup]="regForm">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="fName" placeholder="First Name" formControlName="fName">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.fName.touched || regForm.controls.fName.dirty">{{ fNameError() }}</p>
+              </div>
+            </div><!-- Col -->
+
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input type="text" class="form-control ulineform"  id="lName" placeholder="Last Name" formControlName="lName">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.lName.touched || regForm.controls.lName.dirty">{{ lNameError() }}</p>
+              </div>
+            </div><!-- Col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="pNumber" placeholder="Phone Number" formControlName="pNumber">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.pNumber.touched || regForm.controls.pNumber.dirty">{{ phoneError() }}</p>
+              </div>
+            </div><!-- Col -->
+
+          
+
+          </div><!-- Row -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="email" placeholder="Email" formControlName="email">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.email.touched || regForm.controls.email.dirty">{{ emailError() }}</p>
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="email" placeholder="password" formControlName="password">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.password.touched || regForm.controls.password.dirty">{{ passwordError() }}</p>
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">Gender</label>  -->
+                <div class="form-check form-check-inline mt-3">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios9" id="optionsRadios9"
+                      value="option11">
+                    <i class="input-frame"></i>
+                    Male
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios9" id="optionsRadios9"
+                      value="option11">
+                    <i class="input-frame"></i>
+                    Female
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios9" id="optionsRadios9"
+                      value="option11">
+                    <i class="input-frame"></i>
+                    Others
+                  </label>
+                </div>
+              </div>
+            </div><!-- Col -->
+          </div><!-- Row -->
+          <hr>
+          <h6 class="card-title color-blue">Employee Information</h6>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Department</label>
+                <select class="form-control form-control-sm mb-3 ulineform">
+                  <option selected>Select Department</option>
+                  <option value="HR">HR</option>
+                  <option value="Management">Management</option>
+                  <option value="Sales">Area Staff</option>
+                  <option value="Manufacturing">Finance</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Date of Joining</label>
+                <input type="date" class="form-control ulineform" placeholder="Date">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Company Email</label>
+                <input type="email" class="form-control ulineform" placeholder="Enter email">
+              </div>
+            </div>
+          </div>
+
+          <!-- Row -->
+          <div class="row">
+            
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Designation</label>
+                <select class="form-control form-control-sm mb-3 ulineform">
+                  <option selected>Select Designation</option>
+                  <option value="OG1">OG1</option>
+                  <option value="OG1">OG2</option>
+                  <option value="OG1">OG3</option>
+                </select>
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label>Reports To</label>
+                <select class="form-control form-control-sm mb-3 ulineform">
+                  <option selected>Reports To</option>
+                  <option value="HR Manager">HR Manager</option>
+                  <option value="Sales Manager">Staff Manager</option>
+                  <option value="CEO">CEO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Biometric Attendance</label><br>
+                <!--<input type="attendance" class="form-control ulineform" placeholder="Biometric Attendance">
+              -->
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <div class="col-sm-7">
+              <div class="form-group form-check-inline">
+                <label class="control-label">Type of Employee</label>
+                <div class="form-check form-check-inline ml-3">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios8" id="optionsRadios8"
+                      value="option7">
+                    <i class="input-frame"></i>
+                    Full-Time
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios8" id="optionsRadios8"
+                      value="option7">
+                    <i class="input-frame"></i>
+                    Part-Time
+                  </label>
+                </div>               
+              </div>
+            </div>
+          </div>
+        
+          <button type="button" class="btn btn-primary mr-2 mb-2 mb-md-0" [disabled]="regForm.invalid || loading" (click)="register()">Sign Up</button>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>

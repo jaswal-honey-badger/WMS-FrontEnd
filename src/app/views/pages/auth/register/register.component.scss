@@ -1,0 +1,39 @@
+:host {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-blue{
+  color: #7d98e8;
+}
+
+.ulineform {
+  width: 100%;
+  //padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #c2bba7;
+}
+.center{
+  text-align: center;
+}
+.align-right{
+  text-align: right;
+}
+.size{
+  width: -webkit-fill-available;
+  height: 50px;
+}
+.icon-size
+{
+  font-size: 20px;
+}
+
+.padding-top{
+  padding-top: 10px;
+}
+
+.padding-left{
+  padding-left: 30px;
+}

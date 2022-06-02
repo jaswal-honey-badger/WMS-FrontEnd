@@ -1,0 +1,74 @@
+
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card" >
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">Received Leaves</h6>
+        
+    <div class="card" *ngIf="countTheRecivedLeaves == 0">
+      <div class="card-body">
+     <div class="card-body">
+   <h4 style="color: red;">No Pending Leaves Found</h4>
+     </div>
+      </div>
+    </div>
+        <div class="table-responsive pt-3" *ngIf="countTheRecivedLeaves != 0">
+          <table class="table table-bordered" style="background-color: azure;">
+            <thead style="background-color: rgb(194, 216, 250);">
+              <tr class="text-center">
+                <th>Employee Name</th>
+                <th>Leave Type</th>
+                <th>start Date</th>
+                <th>End Date</th>
+                <th>Reason</th>
+                <th>Designation</th>
+                <th>More</th>
+
+              </tr>
+            </thead>
+            <tbody class="text-center" >
+              <tr *ngFor="let lev of officeNewLeaves">
+                <td>
+                <div *ngFor =" let emp of employees">
+                <div *ngIf="lev.EmployeeId == emp._id">{{emp.fName}}
+                </div></div></td>
+                <td>{{lev.leaveType}}</td>
+                <td>{{lev.startDate | date}}</td>
+                <td>{{lev.endDate | date}}</td>
+                <td>{{lev.reason}}</td>
+                <td>{{lev.desigination}}</td>
+                
+
+                  <td class="td-actions text-center" *ngIf="lev.status == 'Pending'"> 
+                    <button  class="btn btn-light btn-icon" *ngIf = "!show"  (click)="show = !show">
+                      <i class="feather icon-info"></i>&nbsp;
+                    </button>
+                    <button  class="btn btn-light btn-icon" style="background-color: red;" *ngIf = "show"  (click)="updateDeclineStatus(lev._id)" >
+                      <i class="feather icon-x"></i>&nbsp;
+                    </button>
+                    <button  class="btn btn-light btn-icon ml-2" style="background-color: rgb(115, 250, 115);" *ngIf = "show" (click)="updateApproveStatus(lev._id)" >
+                      <i class="feather icon-check"></i>&nbsp;
+                    </button>
+                    </td> 
+                  
+                    
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+              
+              
+              
+            

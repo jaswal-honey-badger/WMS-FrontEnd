@@ -1,0 +1,55 @@
+
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">Attendance Verification List</h6>
+        
+    <div class="card" *ngIf="countTheRecivedLeaves == 0">
+      <div class="card-body">
+     <div class="card-body">
+   <h4 style="color: red;">No Pending Attendance Found</h4>
+     </div>
+      </div>
+    </div>
+        <div class="table-responsive pt-3" *ngIf="countTheRecivedLeaves != 0">  
+          <table class="table table-bordered">
+            <thead style="background-color: rgb(194, 216, 250);">
+              <tr class="text-center">
+                <th>Employee Name</th>
+                <th>verification</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>inTime</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let add of officeNewLeaves">
+                <td>
+                  <div *ngFor =" let emp of employees">
+                  <div *ngIf="add.EmployeeId == emp._id">{{emp.fName}}
+                  </div></div></td>
+                <td>{{add.isVerified}}</td>
+                <td>{{add.status}}</td>
+                <td>{{add.date | date}}</td>
+                <td>{{add.inTime}}</td>
+                <td class="td-actions text-center"> 
+                  <button class="btn btn-primary btn-custom btn-edit-profile" (click)="updateApproveStatus(add._id)"> Click to Approve</button>
+                </td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+              
+              
+              
+            

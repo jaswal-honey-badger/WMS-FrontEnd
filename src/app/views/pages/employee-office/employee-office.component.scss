@@ -1,0 +1,41 @@
+.btn-custom
+{
+  color: #727cf5;
+  background-color: #fff;
+  border-radius: 1.1875rem;
+  margin:10px;
+  border: 2px solid;
+  font-weight: 700;
+}
+
+.search-hero {
+    max-width: 100%;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+
+
+
+.unit
+{
+    margin-top: -34px;
+    margin-left: 58%;
+    width:31%;
+    border-radius: 1.1875rem;
+}
+
+.td-actions
+{
+    margin-right: 33px !important;
+}
+
+input[type="checkbox"] {
+    zoom: 1.5;
+}
+
+.table th{
+    color:#727cf5;
+}

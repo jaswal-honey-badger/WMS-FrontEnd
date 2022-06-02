@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3 class="card-title color-blue">Employee List</h3>
+    <!--<p>Dashboard/Employees/Add Employee</p>-->
+    <nav class="page-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink=".">Dashboard</a></li>
+        <li class="breadcrumb-item"><a routerLink=".">Employees</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Employees List</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<h4 class="card-title" style="margin-bottom: 0.1%; font-weight: bold;"> 
+  <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+    <i class="feather icon-filter"></i>&nbsp;
+  </button>
+</h4>
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card" >
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">Employee List</h6>
+        <div class="container-fluid">
+          <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+            <form class="form-inline" style="padding: 9px; background-color: white;">
+              <div class="form-group ml-2">
+                <input type="text"  min="0" class="form-control" id="user_max_price" placeholder="Enter Employee Name" [formControl]="myEndDate">
+              </div>
+              
+              <div class="form-group ml-2">
+                <input type="date" min="0" class="form-control" id="start-date" placeholder="start Date" [formControl]="myDate">
+              </div>
+             
+              <div class="form-group ml-2">
+                <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="table-responsive pt-3" *ngIf="countTheRecivedLeaves != 0" >
+          <table class="table table-bordered" style="background-color: azure;">
+            <thead style="background-color: rgb(194, 216, 250);">
+              <tr class="text-center">
+                <th>#</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Joining Date</th>
+                <th>Department</th>
+                <th>Phone Number</th>
+                <th>View More</th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let emp of employees | paginate: { itemsPerPage: 4, currentPage: p } ;let i=index">
+                <td>{{i+1}}</td>
+                <td>{{emp.fName}}{{emp.lName}}</td>
+                <td>{{emp.email}}</td>
+                <td value="emp.createdAt">{{emp.createdAt | date}}</td>
+                <td>Scrap</td>
+                <td>{{emp.pNumber}}</td>
+                <td>
+          
+                  <button style="background-color: rgb(120, 185, 23);" class="btn btn-light btn-icon" [routerLink]="['/employee-detail',emp._id]"><i style="color: whitesmoke;" class="feather icon-eye"></i></button>
+                  
+                </td>
+              </tr>
+
+              
+            </tbody>
+          </table>
+          <div class="pagination mt-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+              
+              
+              
+            

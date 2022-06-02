@@ -1,0 +1,122 @@
+<h4 class="card-title" style="margin-bottom: -1%; font-weight: bold;"> 
+  <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+    <i class="feather icon-filter"></i>&nbsp;
+  </button>
+</h4>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title" style="color:#727cf5;">Attendance List</h6>
+        <div class="table-responsive pt-3">  
+          <div class="container-fluid ">
+           
+            <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+              <form class="form-inline" style="padding: 9px; background-color: white;">
+                <div class="form-group ml-2">
+                </div>
+                <div class="form-group ml-2">
+                  <select class="form-control" id="verify" [formControl]="verification">
+                    <option value="">Select verification</option>
+                    <option value="true">yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="form-group ml-2">
+                  <select class="form-control" id="mySta" [formControl]="myStatus"> 
+                    <option value="">Select Status</option>
+                    <option value="Present">Present</option>
+                    <option value="Absent">Absent</option>
+                  </select>
+                </div>
+                <div class="form-group ml-2">
+                  <input type="date" min="0" class="form-control" id="myD" [formControl]="myDate"  placeholder="Date">
+                </div>
+                <div class="form-group ml-2">
+                  <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                  <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <table class="table table-bordered" style="background-color: azure;">
+            <thead style="background-color: rgb(194, 216, 250);">
+              <tr class="text-center">
+                  <th>#</th>
+                  <th>Employee Name</th>
+                  <th>Date </th>
+                  <th>In Time</th>
+                  <th>Out Time</th>
+                  <th>Status</th>
+                  <th>Duration</th>
+                  <th>Verification</th>
+
+              </tr>
+            </thead>
+            <tbody class="text-center">
+              <tr *ngFor="let att of officeNewLeaves | search: [verification.value,myStatus.value , myDate.value]: ['isVerified','status','currentDate'] | paginate: { itemsPerPage: 4, currentPage: p }; let i=index">
+                <td>{{i+1}}</td>
+                <td>
+                  <div *ngFor =" let emp of employees">
+                  <div *ngIf="att.EmployeeId == emp._id">{{emp.fName}}
+                  </div></div></td>
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="pagination mt-4">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <a class="website" href="https://frontenddevelopment.tech/" target="_blank"
+  >www.frontenddevelopment.tech</a
+>
+
+<div id="table-component">
+  <p>Popular Muscle Cars</p>
+  <table>
+    <thead>
+      <tr>
+        <th class="pl-2">Year</th>
+        <th>Make</th>
+        <th>Model</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let car of officeNewLeaves | paginate: { itemsPerPage: 2, currentPage: p }
+        "
+      >
+        <td class="pl-2">{{ car.inTime }}</td>
+        <td>{{ car.inTime }}</td>
+        <td>{{ car.inTime }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div> -->
+
+
+              
+              
+              
+            

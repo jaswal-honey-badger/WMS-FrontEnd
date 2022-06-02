@@ -1,0 +1,39 @@
+.btn-custom
+{
+  color: #727cf5;
+  background-color: #fff;
+  border-radius: 1.1875rem;
+  margin:10px;
+  border: 2px solid;
+  font-weight: 700;
+}
+
+.form-control
+{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #c1cbe9;
+    width: 56%;
+}
+
+.unit
+{
+    margin-top: -34px;
+    margin-left: 58%;
+    width:31%;
+    border-radius: 1.1875rem;
+}
+
+.td-actions
+{
+    margin-right: 33px !important;
+}
+
+input[type="checkbox"] {
+    zoom: 1.5;
+}
+
+.table th{
+    color:#727cf5;
+}

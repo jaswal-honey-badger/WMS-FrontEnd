@@ -1,0 +1,274 @@
+<div class="row">
+  <div class="col-md-9 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">personal Information</h6>
+        <form class="forms-sample" *ngFor="let emp of employees">
+          <div class="form-group row">
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary"></span>Name</label>
+            <div class="col-sm-3">
+              <label for="exampleInputUsername2"   class="col-sm-3 col-form-label"> <span class="badge badge-success">{{emp.fName}}</span></label>
+            </div>
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary-muted"></span>Total Leaves</label>
+            <div class="col-sm-3">
+              <label for="exampleInputUsername2" class="col-sm-3 col-form-label"><span class="badge badge-success">{{countTheRecivedLeaves}}</span></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary"></span>Email</label>
+            <div class="col-sm-3">
+              <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><span class="badge badge-success">{{emp.email}}</span></label>
+            </div>
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary-muted"></span>Absents</label>
+            <div class="col-sm-3">
+              <label for="exampleInputEmail2" class="col-sm-3 col-form-label"><span class="badge badge-danger">{{countTwo}}</span></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary"></span>Designation</label>
+            <div class="col-sm-3">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label"><span class="badge badge-success">Team Member</span></label>
+            </div>
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary-muted"></span>current Month Leave</label>
+            <div class="col-sm-3">
+              <label for="exampleInputMobile" class="col-sm-3 col-form-label"><span class="badge badge-danger">4</span></label>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary"></span>Office email</label>
+            <div class="col-sm-3">
+              <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><span class="badge badge-success">{{officeName}}</span></label>
+            </div>
+            <label class="d-flex align-items-center tx-06 text-uppercase font-weight-small col-sm-3"><span class="p-1 mr-1 rounded-circle bg-primary-muted"></span>current Month Absent</label>
+
+            <div class="col-sm-3">
+              <label for="exampleInputPassword2" class="col-sm-3 col-form-label"><span class="badge badge-success">5</span></label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-baseline mb-2">
+          <h6 class="card-title mb-0">performance</h6>
+        </div>
+        <div id="progressbar1" class="mx-auto"></div>
+        <div class="row mt-4 mb-3">
+          <div class="col-6 d-flex justify-content-end">
+            <div>
+              <label class="d-flex align-items-center justify-content-end tx-10 text-uppercase font-weight-medium">Absent <span class="p-1 ml-1 rounded-circle bg-primary-muted"></span></label>
+              <h5 class="font-weight-bold mb-0 text-right">{{countTwo}}</h5>
+            </div>
+          </div>
+          <div class="col-6">
+            <div>
+              <label class="d-flex align-items-center tx-10 text-uppercase font-weight-medium"><span class="p-1 mr-1 rounded-circle bg-primary"></span>Present</label>
+              <h5 class="font-weight-bold mb-0">{{countOne}}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" >
+  <div class="col-xl-12 main-content pl-xl-4 pr-xl-5">
+    <div class="example">
+      <ul ngbNav #fillJustifyNav="ngbNav" class="nav-tabs nav-fill">
+        <li [ngbNavItem]="1">
+          
+          <a ngbNavLink>Leaves</a>
+          <ng-template ngbNavContent>
+            <div class="container-fluid mb-5">
+              <h4 class="card-title" style="margin-bottom: -1%; font-weight: bold;"> Leave search
+                <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+                  <i class="feather icon-filter"></i>&nbsp;
+                </button>
+              </h4>
+              <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+                <form class="form-inline" style="padding: 9px; background-color: white;">
+                  <div class="form-group ml-2">
+                    <select class="form-control"  id="mySta" [formControl]="myStatus">
+                      <option value="">Select Status</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Approved">Approved</option>
+                      <option value="Declined">Declined</option> </select></div>
+                  <div class="form-group ml-2">
+                    <select class="form-control"  id="leaveT" [formControl]="leaveType">
+                      <option value="">Select Type</option>
+                      <option value="Medical">Medical</option>
+                      <option value="Casual">Casual</option>
+                      <option value="Privilege">Privilege</option>
+                    </select>
+                  
+                  </div>
+                  <div class="form-group ml-2">
+                    <input type="date" min="0" class="form-control" id="start-date" placeholder="start Date" [formControl]="myNewDate">
+                  </div>
+                  <div class="form-group ml-2">
+                    <input type="date"  min="0" class="form-control" id="user_max_price" placeholder="End Date" [formControl]="myEndDate">
+                  </div>
+                  <div class="form-group ml-2">
+                    <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                    <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            
+            <h3 *ngIf = "countTheRecivedLeaves == 0" style="color: green;">No Leave found</h3>
+            <table class="table table-bordered"  *ngIf = "countTheRecivedLeaves != 0"  style="background-color: azure;">
+              <thead style="background-color: rgb(194, 216, 250);">
+                <tr class="text-center">
+                  <th>#</th>
+                  <th>Leave Type</th>
+                  <th>start Date</th>
+                  <th>End Date</th>
+                  <th>days</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr *ngFor="let lev of officeNewLeaves | search: [myStatus.value , leaveType.value , myNewDate.value , myEndDate.value]: ['status','leaveType' , 'startDate' , 'endDate'] | paginate: { itemsPerPage: 2, currentPage: p }  ; let i=index">
+                  <td style="font-weight: bolder;">{{i+1}}</td>
+                  <td>{{lev.leaveType}}</td>
+                  <td value="lev.startDate">{{lev.startDate | date}}</td>
+                  <td value="lev.endDate">{{lev.endDate | date}}</td>
+                  <td>1</td>
+                  <td>{{lev.reason}}</td>
+                  <td *ngIf="lev.status == 'Pending'"><span class="badge badge-info-muted">{{lev.status}}</span></td>
+                  <td *ngIf="lev.status == 'Approved'"><span class="badge badge-success">{{lev.status}}</span></td>
+                  <td *ngIf="lev.status == 'Declined'"><span class="badge badge-danger">{{lev.status}}</span></td>
+
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination mt-4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Attendance</a>
+          <ng-template ngbNavContent>
+            <div class="container-fluid mb-5">
+              <h4 class="card-title" style="margin-bottom: -1%; font-weight: bold;"> Attendance search
+                <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+                  <i class="feather icon-filter"></i>&nbsp;
+                </button>
+              </h4>
+              <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+                <form class="form-inline" style="padding: 9px; background-color: white;">
+                  <div class="form-group ml-2">
+                  </div>
+                  <div class="form-group ml-2">
+                    <select class="form-control" id="verify" [formControl]="verfied">
+                      <option value="">Select verification</option>
+                      <option value="true">yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                  <div class="form-group ml-2">
+                    <select class="form-control" id="myStat" [formControl]="myNewStatus"> 
+                      <option value="">Select Status</option>
+                      <option value="Present">Present</option>
+                      <option value="Absent">Absent</option>
+                    </select>
+                  </div>
+                  <div class="form-group ml-2">
+                    <input type="date" min="0" class="form-control" id="myD" [formControl]="myOneDate"  placeholder="Date">
+                  </div>
+                  <div class="form-group ml-2">
+                    <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                    <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <table class="table table-bordered"  style="background-color: azure;">
+              <thead style="background-color: rgb(194, 216, 250);">
+                <tr class="text-center">
+                  <th>SNo</th>
+                  <th>Date </th>
+                  <th>In Time</th>
+                  <th>Out Time</th>
+                  <th>Status</th>
+                  <th>Duration</th>
+                  <th>Verification</th>
+  
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr *ngFor="let att of AttendanceNew | search: [verfied.value , myNewStatus.value , myOneDate.value]: ['isVerified','status','currentDate']  | paginate: { itemsPerPage: 2, currentPage: p }   ; let i=index">
+                  <td>{{i+1}}</td>
+                  <td value="att.currentDate">{{att.currentDate | date}}</td>
+                  <td>{{att.inTime}}</td>
+                  <td>{{att.inTime}}</td>
+                  <td>{{att.status}}</td>
+                  <td>2</td>
+                  <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                  <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+
+                      
+                </tr>
+              </tbody>
+            </table>
+            <div class="pagination mt-4">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="3">
+          <a ngbNavLink>Map</a>
+          
+          <ng-template ngbNavContent>
+            <div class="container-fluid mb-5">
+              <h4 class="card-title" style="margin-bottom: -1%; font-weight: bold;"> Map Date search
+                <button type="button" class="btn btn-light btn-icon" (click)="showFilters = !showFilters" style="float: right;">
+                  <i class="feather icon-filter"></i>&nbsp;
+                </button>
+              </h4>
+              <div class="filters card" *ngIf="showFilters" style="margin-bottom: 9px; margin-top: 30px;">
+                <form class="form-inline" style="padding: 9px; background-color: white;">
+                  <div class="form-group ml-2">
+                  </div>
+                  <div class="form-group ml-2">
+                    <input type="date" min="0" class="form-control" id="myD" [formControl]="myTwoDate"  placeholder="Date">
+                  </div>
+                  <div class="form-group ml-2">
+                    <button type="button" class="btn btn-primary"><i class="feather icon-search"></i></button>
+                    <button type="button" class="btn btn-light ml-1"><i class="feather icon-refresh-ccw"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            
+            <agm-map [latitude]="lat" [longitude]="lng" [restriction]="countryRestriction">
+              <agm-marker *ngFor="let att of AttendanceNew | search: [myTwoDate.value]: ['currentDate'] ; let i=index" [latitude]="att.lat" [longitude]="att.lng"></agm-marker>
+            </agm-map>
+          </ng-template>
+        </li>
+        <!-- <li [ngbNavItem]="4">
+          <a ngbNavLink class="disabled">Disabled</a>
+          <ng-template ngbNavContent>
+            <h6 class="mb-2">Disabled content</h6>
+            <p>Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam.</p>
+          </ng-template>
+        </li> -->
+      </ul>
+      
+      <div [ngbNavOutlet]="fillJustifyNav" class="border border-top-0 p-3"></div>
+    </div>
+  </div>
+ 
+</div>
+
+
+
+
+
+

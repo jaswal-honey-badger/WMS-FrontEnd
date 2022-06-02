@@ -1,0 +1,111 @@
+<h3 class="color-blue">Office</h3>
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Dashboard</a></li>
+    <li class="breadcrumb-item"><a routerLink=".">Office</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add Office</li>
+  </ol>
+</nav>
+
+<ng-container *ngIf="checkVerificationEmailStep" style="background-color: green;">
+  <div class="row" style="background-color: green;">
+    <div class="col-md-12 stretch-card" style="background-color:green ;">
+      <div class="card">
+        <div class="card-body" style="background-color:rgb(215, 247, 216) ;">  
+  <i [attr.data-feather]="'check'" appFeatherIcon class="xl-icon"></i>
+  <h5 class="text-muted mt-2">Success!</h5>
+  <p class="text-muted mt-1">Account created. Please check your email for verification link.</p>
+  </div></div></div></div>
+</ng-container>
+
+
+<div class="row" *ngIf="!checkVerificationEmailStep">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">        
+        <h6 class="card-title color-blue">Office</h6>
+        <form class="forms-sample" [formGroup]="regForm">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="officeName" placeholder="Office Name" formControlName="officeName">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.officeName.touched || regForm.controls.officeName.dirty">{{officeError()}}</p>
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="email" placeholder="Email" formControlName="email">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.email.touched || regForm.controls.email.dirty">{{ emailError() }}</p>
+              </div>
+            </div><!-- Col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="address" placeholder="Address" formControlName="address">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.address.touched || regForm.controls.address.dirty">{{ addressError() }}</p>
+              </div>
+            </div><!-- Col -->
+            
+            
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="pNumber" placeholder="Phone Number" formControlName="pNumber">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.pNumber.touched || regForm.controls.pNumber.dirty">{{phoneError()}}</p>
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform"  id="password" placeholder="password" formControlName="password">
+                <p class="text-danger mt-1" *ngIf="regForm.controls.password.touched || regForm.controls.password.dirty">{{ passwordError() }}</p>
+              </div>
+            </div><!-- Col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">
+              <select class="form-control ulineform" formControlName="city">
+                  <option value="">Select City</option>
+                  <option *ngFor="let row of rows">{{row.region}}</option>
+              </select>
+              <p class="text-danger mt-1" *ngIf="regForm.controls.city.touched || regForm.controls.city.dirty">{{ cityError() }}</p>
+            </div>
+            </div> 
+ 
+
+          </div>
+       
+        <h6 class="card-title color-blue">Select Your Location</h6>
+        <div class="container">
+
+          <agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onMapClicked($event)"  [zoom]="zoom"
+          [restriction]="countryRestriction">
+         
+          </agm-map>
+          
+          <div class="row mt-3">
+            <div class="col-sm-4">
+              <div class="form-group">
+          <input type="text" [(ngModel)]="latitude" class="form-control" placeholder="latitude" formControlName="lat" disabled>
+          <!-- <p class="text-danger mt-1" *ngIf="latitude > 1" >please enter a valid value</p>  -->
+        </div></div>
+          <div class="col-sm-4">
+            <div class="form-group">
+          <input type="text" [(ngModel)]="longitude" placeholder="longitude" class="form-control"  formControlName="lng" disabled>
+           <!-- <p class="text-danger mt-1" *ngIf="longitude > 0" >please enter a valid value</p>  -->
+
+        </div></div>
+          <!-- <div>Latitude: {{latitude}}</div>
+          <div>Longitude: {{longitude}}</div> -->
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mr-2 mb-2 mt-4 mb-md-0" [disabled]="regForm.invalid || loading"  (click)="register()">Sign Up</button></form>
+      </div>
+    </div>
+  </div>
+</div>

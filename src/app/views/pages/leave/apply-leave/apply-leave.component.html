@@ -1,0 +1,57 @@
+<h3 class="card-title color-blue">Apply Leave</h3>
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Dashboard</a></li>
+    <li class="breadcrumb-item"><a routerLink=".">Leave</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Apply Leave</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <form class="forms-sample">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Leave Type</label>
+                <select class="form-control form-control-sm mb-3 ulineform">
+                  <option selected>Select</option>
+                  <option value="Casual Leave">Casual Leave</option>
+                  <option value="Medical Leave">Medical Leave</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Start Date</label>
+                <input type="date" class="form-control ulineform" placeholder="Date">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="exampleInputUsername1">End Date</label>
+                <input type="date" class="form-control ulineform" placeholder="Date">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Reason</label>
+            <textarea class="form-control ulineform" id="exampleFormControlTextarea1" rows="5"
+              placeholder="Spacify Reason"></textarea>
+          </div>
+          <div class="form-check form-check-flat form-check-primary">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              <i class="input-frame"></i>
+              Is it a Half Day?
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary mr-2">Apply Leave</button>
+          <button class="btn btn-light">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

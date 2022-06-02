@@ -1,0 +1,541 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+  <div>
+    <h4 class="mb-3 mb-md-0">Welcome to Dashboard</h4>
+  </div>
+  <div class="d-flex align-items-center flex-wrap text-nowrap">
+    <div class="input-group dashboard-date mr-2 mb-2 mb-md-0 d-md-none d-xl-flex">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-primary btn-icon calendar" type="button" (click)="d.toggle()">
+          <i data-feather="calendar" appFeatherIcon></i>
+        </button>
+      </div>
+      <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="currentDate" ngbDatepicker
+        #d="ngbDatepicker">
+    </div>
+    <button type="button" class="btn btn-outline-info btn-icon-text mr-2 d-none d-md-block">
+      <i class="btn-icon-prepend" data-feather="download" appFeatherIcon></i>
+      Import
+    </button>
+    <button type="button" class="btn btn-outline-primary btn-icon-text mr-2 mb-2 mb-md-0">
+      <i class="btn-icon-prepend" data-feather="printer" appFeatherIcon></i>
+      Print
+    </button>
+    <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
+      <i class="btn-icon-prepend" data-feather="download-cloud" appFeatherIcon></i>
+      Download Report
+    </button>
+  </div>
+</div>
+
+<div class="row" id="contentToConvert">
+  <div class="col-12 col-xl-12 stretch-card" >
+    <div class="row flex-grow" style="background-color: rgb(255, 252, 252); box-shadow: 10px 10px 5px  rgb(151, 92, 119);">
+      
+      <div class="col-md-3 grid-margin stretch-card" (click)="openXlModal(xlModal)">
+        <div class="card  color-green">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="user" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3"> {{countTwo}} in office 
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+      <div class="col-md-3 grid-margin stretch-card" (click)="openXlModal(mlModal)">
+        <div class="card  color-pink">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="check-square" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3"> {{countOne}} out of office</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 grid-margin stretch-card" (click)="openXlModal(olModal)">
+        <div class="card  color-blue">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="users" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3">{{countFour}} present</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 grid-margin stretch-card" (click)="openXlModal(nlModal)">
+        <div class="card  color-green">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="users" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3">{{countThree}} Absent</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card" (click)="openXlModal(llModal)">
+        <div class="card  color-pink">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="users" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3">{{countFive}} leaves</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card" (click)="openXlModal(qlModal)">
+        <div class="card color-blue">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="users" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3"> {{countSix}} through pin</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 grid-margin stretch-card" (click)="openXlModal(rlModal)">
+        <div class="card color-green">
+          <div class="card-body">
+            <div class="text-center">
+              <i class="size-fea text-color" data-feather="users" appFeatherIcon></i>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-12 col-xl-12">
+                <h4 class="text-center text-color mt-3"> {{countSeven}}through Thumb</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" style="margin-top: 2%; box-shadow: 2px 2px 2px 12px rgb(190, 234, 248);"  >
+  <div class="col-xl-8 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Department Wise Head Count</h6>
+        <p>Total no of Employees in each Department</p>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [colors]="barChartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Today's Attendance</h5>
+        <p>Total no of Present & Absent</p>
+        <hr>
+        <canvas baseChart [data]="doughnutChartData" [chartType]="doughnutChartType" [colors]="doughnutChartColors"
+          [labels]="doughnutChartLabels">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="col-md-8 grid-margin stretch-card mt-3" style="margin-left: -1%;">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-baseline mb-2">
+        <h6 class="card-title mb-0">location in / out  ({{currentDateTime}})</h6>
+      </div>
+      <div id="progressbar1" class="mx-auto"></div>
+      <div class="row mt-4 mb-3">
+        <div class="col-6 d-flex justify-content-end">
+          <div>
+           <a (click)="openXlModal(xlModal)"><label class="d-flex align-items-center justify-content-end tx-10 text-uppercase font-weight-medium"> in location <span class="p-1 ml-1 rounded-circle bg-primary-muted"></span></label></a>
+            <h5 class="font-weight-bold mb-0 text-right">{{countTwo}}</h5>
+          </div>
+        </div>
+        <div class="col-6">
+          <div>
+            <a (click)="openXlModal(mlModal)"><label class="d-flex align-items-center tx-10 text-uppercase font-weight-medium"><span class="p-1 mr-1 rounded-circle bg-primary"></span> <i class="feather icon-truck"></i>&nbsp;Out location</label></a>
+            <h5 class="font-weight-bold mb-0">{{countOne}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="example">
+  <!-- Xl Modal -->
+  <ng-template #xlModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">In Location</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Office Name</th>
+              <th>Date</th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>location</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of two ; let i=index">
+              <td>{{i+1}}</td>
+              <td>
+                <div *ngFor ="let emp of myResearcherUsersE">
+                <div *ngIf="att.EmployeeId == emp._id">{{emp.fName}}
+                </div></div></td>
+                <td>
+                  <div *ngFor ="let emp of myResearcherUsers">
+                    <div *ngIf="att.OfficeId == emp._id">{{emp.officeName}}
+                    </div></div>
+                </td>
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.location}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+      <button type="button" class="btn btn-primary" (click)="modal.close('by: save button')">Save changes</button>
+    </div>
+  </ng-template>
+  <ng-template #mlModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">out of Location</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Office Name</th>
+              <th>Date </th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>location</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of one ; let i=index">
+              <td>{{i+1}}</td>
+              <td>
+                <div *ngFor ="let emp of myResearcherUsersE">
+                <div *ngIf="att.EmployeeId == emp._id">{{emp.fName}}
+                </div></div></td>
+                <td>
+                  <div *ngFor ="let emp of myResearcherUsers">
+                    <div *ngIf="att.OfficeId == emp._id">{{emp.officeName}}
+                    </div></div>
+                </td>
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.location}}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <ng-template #nlModal let-modal>
+
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Today Absent Employee </h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Date</th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Status</th>
+              <th>Duration</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of three ; let i=index">
+              <td>{{i+1}}</td>
+              <td>
+                <div *ngFor ="let emp of myResearcherUsersE">
+                <div *ngIf="att.EmployeeId == emp._id">{{emp.fName}}
+                </div></div></td>
+                <td>
+                  <div *ngFor ="let emp of myResearcherUsers">
+                    <div *ngIf="att.OfficeId == emp._id">{{emp.officeName}}
+                    </div></div>
+                </td>
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>{{att.location}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <ng-template #olModal let-modal>
+
+    <div class="modal-header">
+      
+      <h5 class="modal-title" id="exampleModalLabel"> Today Present Employee</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Office Name</th>
+              <th>Date</th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Status</th>
+              
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of four ; let i=index">
+              <td>{{i+1}}</td>
+                
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>{{att.location}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <ng-template #llModal let-modal>
+
+    <div class="modal-header">
+      
+      <h5 class="modal-title" id="exampleModalLabel">Today in leaves</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Date </th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Status</th>
+              <th>Duration</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of five ; let i=index">
+              <td>{{i+1}}</td>
+                
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>{{att.location}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <ng-template #qlModal let-modal>
+
+    <div class="modal-header">
+      
+      <h5 class="modal-title" id="exampleModalLabel">Absent People</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Date </th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Status</th>
+              <th>Duration</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of six ; let i=index">
+              <td>{{i+1}}</td>
+                
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>{{att.location}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <ng-template #rlModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Leaves</h5>
+      <button type="button" class="close" (click)="modal.close('by: close icon')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="table-responsive pt-3" >
+        <table class="table table-bordered" style="background-color: azure;">
+          <thead style="background-color: rgb(194, 216, 250);">
+            <tr class="text-center">
+              <th>#</th>
+              <th>Employee Name</th>
+              <th>Date </th>
+              <th>In Time</th>
+              <th>Out Time</th>
+              <th>Status</th>
+              <th>Duration</th>
+              <th>Verification</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr *ngFor="let att of seven ; let i=index">
+              <td>{{i+1}}</td>
+                
+                <td value="att.currentDate">{{att.currentDate | date}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.inTime}}</td>
+                <td>{{att.status}}</td>
+                <td>{{att.location}}</td>
+                <td>2</td>
+                <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
+                <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination mt-4">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    </div>
+  </ng-template>
+  <div>
+    <input type="button" value="Convert" (click)="captureScreen()"/>
+  </div>
+</div>
+
+

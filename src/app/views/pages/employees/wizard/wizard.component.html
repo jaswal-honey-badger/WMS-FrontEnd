@@ -1,0 +1,48 @@
+<h3 class="card-title color-blue">Office</h3>
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Dashboard</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Office</li>
+  </ol>
+</nav>
+
+
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">        
+        <h6 class="card-title color-blue">Office</h6>
+        <form>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <!--<label class="control-label">First Name</label>-->
+                <input type="text" class="form-control ulineform" placeholder="Office Name">
+              </div>
+            </div>
+          </div>
+        </form>
+        <h6 class="card-title color-blue">Google Map Demonstration</h6>
+        <agm-map [latitude]="lat" [longitude]="lng">
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="false"
+          [zoomControl]="true"
+          (mapClick)="mapClicked($event)">
+        
+          <agm-marker 
+              [latitude]="lati"
+              [longitude]="longi">
+              
+            <agm-info-window>
+              <strong>Your Location</strong>
+            </agm-info-window>
+            
+          </agm-marker>
+        </agm-map>
+        <button type="button" class="btn btn-primary submit mt-3">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
