@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  mainUrl: 'http://localhost:3001'
+  mainUrl: 'http://35.233.251.247'
   //mainUrl: 'http://192.168.18.3:3001'
 };
 
