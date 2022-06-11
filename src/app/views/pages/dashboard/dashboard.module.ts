@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { FeahterIconModule } from 'src/app/core/feather-icon/feather-icon.module';
 import { NgbDropdownModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { jsPDF } from 'jspdf'
@@ -30,6 +30,7 @@ const routes: Routes = [
     FormsModule,
     FeahterIconModule,
     NgbDropdownModule,
+    NgxPaginationModule,
     NgbDatepickerModule,
     NgApexchartsModule,
     ChartsModule

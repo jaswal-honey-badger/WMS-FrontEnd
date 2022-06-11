@@ -55,7 +55,7 @@
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody class="text-center">
+            <!-- <tbody class="text-center">
               <tr *ngFor="let lev of officeNewLeaves | search: [myStatus.value , leaveType.value , myDate.value ,myEndDate.value]:['status','leaveType','startDate','endDate'] | paginate: { itemsPerPage: 4, currentPage: p } ;let i=index">
                 <td>{{i+1}}</td>
                 <td>
@@ -71,10 +71,10 @@
                 <td *ngIf="lev.status == 'Approved'"><span class="badge badge-success">{{lev.status}}</span></td>
                 <td *ngIf="lev.status == 'Declined'"><span class="badge badge-danger">{{lev.status}}</span></td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
           <div class="pagination mt-4">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="$event"></pagination-controls>
           </div>
         </div>
       </div>

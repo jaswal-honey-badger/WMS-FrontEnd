@@ -19,7 +19,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [EmployeeOfficeComponent , SearchPipe],
+  declarations: [EmployeeOfficeComponent],
   imports: [
     CommonModule,
     FormsModule,

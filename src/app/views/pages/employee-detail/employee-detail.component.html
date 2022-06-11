@@ -132,7 +132,7 @@
                   <th>Status</th>
                 </tr>
               </thead>
-              <tbody class="text-center">
+              <!-- <tbody class="text-center">
                 <tr *ngFor="let lev of officeNewLeaves | search: [myStatus.value , leaveType.value , myNewDate.value , myEndDate.value]: ['status','leaveType' , 'startDate' , 'endDate'] | paginate: { itemsPerPage: 2, currentPage: p }  ; let i=index">
                   <td style="font-weight: bolder;">{{i+1}}</td>
                   <td>{{lev.leaveType}}</td>
@@ -145,10 +145,10 @@
                   <td *ngIf="lev.status == 'Declined'"><span class="badge badge-danger">{{lev.status}}</span></td>
 
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
             <div class="pagination mt-4">
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              <pagination-controls (pageChange)="$event"></pagination-controls>
             </div>
           </ng-template>
         </li>
@@ -202,7 +202,7 @@
   
                 </tr>
               </thead>
-              <tbody class="text-center">
+              <!-- <tbody class="text-center">
                 <tr *ngFor="let att of AttendanceNew | search: [verfied.value , myNewStatus.value , myOneDate.value]: ['isVerified','status','currentDate']  | paginate: { itemsPerPage: 2, currentPage: p }   ; let i=index">
                   <td>{{i+1}}</td>
                   <td value="att.currentDate">{{att.currentDate | date}}</td>
@@ -215,10 +215,10 @@
 
                       
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
             <div class="pagination mt-4">
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              <pagination-controls (pageChange)="$event"></pagination-controls>
             </div>
           </ng-template>
         </li>
@@ -247,9 +247,9 @@
               </div>
             </div>
             
-            <agm-map [latitude]="lat" [longitude]="lng" [restriction]="countryRestriction">
+            <!-- <agm-map [latitude]="lat" [longitude]="lng" [restriction]="countryRestriction">
               <agm-marker *ngFor="let att of AttendanceNew | search: [myTwoDate.value]: ['currentDate'] ; let i=index" [latitude]="att.lat" [longitude]="att.lng"></agm-marker>
-            </agm-map>
+            </agm-map> -->
           </ng-template>
         </li>
         <!-- <li [ngbNavItem]="4">

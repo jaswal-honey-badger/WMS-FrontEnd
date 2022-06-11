@@ -54,7 +54,7 @@
 
               </tr>
             </thead>
-            <tbody class="text-center">
+            <!-- <tbody class="text-center">
               <tr *ngFor="let att of officeNewLeaves | search: [verification.value,myStatus.value , myDate.value]: ['isVerified','status','currentDate'] | paginate: { itemsPerPage: 4, currentPage: p }; let i=index">
                 <td>{{i+1}}</td>
                 <td>
@@ -69,10 +69,10 @@
                 <td *ngIf="att.isVerified == true"><span class="badge badge-success">{{att.isVerified}}</span></td>
                 <td *ngIf="att.isVerified == false"><span class="badge badge-danger">{{att.isVerified}}</span></td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
           <div class="pagination mt-4">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="$event"></pagination-controls>
           </div>
         </div>
       </div>

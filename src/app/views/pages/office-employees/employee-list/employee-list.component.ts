@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/common/auth.service';
 import { userService } from 'src/app/core/services/user.service';
 
@@ -15,6 +16,10 @@ export class EmployeeListComponent implements OnInit {
   userId = AuthService.getLoggedUser().id;
   employees = [];
   offices = [];
+  countTheRecivedLeaves =0;
+  showFilters = false;
+  myEndDate = new FormControl('');
+  myDate = new FormControl('');
   employeeId = "6257bb97a3cc8e08e46399fd";
   officeId = "6257bb97a3cc8e08e46399fc";
 

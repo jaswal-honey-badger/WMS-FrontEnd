@@ -30,7 +30,7 @@
                 <th>view More</th>
               </tr>
             </thead>
-            <tbody>
+            <!-- <tbody>
               <tr *ngFor="let col of collectors | paginate: { itemsPerPage: 4, currentPage: p } ;let i=index">
                 <td >{{i+1}}</td>
                 <td >{{ col.fName }} {{ col.lName }}</td>
@@ -40,10 +40,10 @@
                   <button style="background-color: rgb(120, 185, 23);" class="btn btn-light btn-icon" [routerLink]="['/employee-detail',col._id]"><i style="color: whitesmoke;" class="feather icon-eye"></i></button>
                 </td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
           <div class="pagination mt-4">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="$event"></pagination-controls>
           </div>
         </div>
       </div>

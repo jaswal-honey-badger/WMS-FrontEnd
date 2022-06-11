@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+//import { FeatherModule } from 'angular-feather';
 import { FeahterIconModule } from '../../../core/feather-icon/feather-icon.module';
 
 // ngx-quill
@@ -69,5 +69,8 @@ const routes: Routes = [
       apiKey: 'AIzaSyAP8n5GbRjUqB9dQfxDfZLJuFam4PjHOTs'
     })
   ]
+  // exports: [
+  //   FeatherModule
+  // ]
 })
 export class EmployeesModule { }

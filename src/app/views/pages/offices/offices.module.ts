@@ -44,7 +44,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [ OfficesComponent, OfficeListComponent, AddOfficeComponent ,SearchPipe ],
+  declarations: [ OfficesComponent, OfficeListComponent, AddOfficeComponent],
   imports: [
     CommonModule,
     

@@ -64,7 +64,7 @@
 
               </tr>
             </thead>
-            <tbody class="text-center">
+            <!-- <tbody class="text-center">
               <tr *ngFor="let user of myResearcherUsers | search: [officeName.value , districtName.value]:['officeName', 'city'] | paginate: { itemsPerPage: 4, currentPage: p } ;let i=index">
                 <td>{{i + 1}}</td>
                 <td>{{user.officeName}}</td>
@@ -75,10 +75,10 @@
                   <button style="background-color: rgb(120, 185, 23);" class="btn btn-light btn-icon" [routerLink]="['/employee-office',user._id]"><i style="color: whitesmoke;" class="feather icon-list"></i></button>
                   </td>  
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
           <div class="pagination mt-4">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <pagination-controls (pageChange)="$event"></pagination-controls>
           </div>
         </div>
       </div>

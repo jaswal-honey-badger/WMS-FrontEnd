@@ -9,7 +9,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { FeahterIconModule } from 'src/app/core/feather-icon/feather-icon.module';
 import { NgbDropdownModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
-// import { ZXingScannerModule } from '@zxing/ngx-scanner';
+ //import { ZXingScannerModule } from '@zxing/ngx-scanner';
 // Ng-ApexCharts
 import { NgApexchartsModule } from "ng-apexcharts";
 
@@ -44,7 +44,7 @@ const routes: Routes = [
     NgbDatepickerModule,
     NgApexchartsModule,
     CarouselModule,
-   // ZXingScannerModule,
+    //ZXingScannerModule,
     AngularCropperjsModule,
     ChartsModule,
     SweetAlert2Module.forRoot(),

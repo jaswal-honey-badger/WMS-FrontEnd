@@ -17,7 +17,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [AttendenceAdminAllComponent , SearchPipe],
+  declarations: [AttendenceAdminAllComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

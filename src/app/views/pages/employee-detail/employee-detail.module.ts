@@ -28,7 +28,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [EmployeeDetailComponent ,SearchPipe],
+  declarations: [EmployeeDetailComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

@@ -21,6 +21,7 @@ export class LeaveAllComponent implements OnInit {
   officeNewLeaves = [];
   employeeId = "6257bb97a3cc8e08e46399fd";
   employees = [];
+  showFilters = false;
   leaveType = new FormControl(''); 
   myStatus =  new FormControl('');
   myDate = new FormControl('');
